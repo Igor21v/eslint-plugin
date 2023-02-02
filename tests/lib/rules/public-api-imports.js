@@ -36,7 +36,7 @@ ruleTester.run("public-api-imports", rule, {
       options: aliasOptions,
     },
     {
-      filename: 'C:\\Users\\tim\\Desktop\\javascript\\production_project\\src\\entities\\file.test.ts',
+      filename: 'C:\\Users\\Public\\Desktop\\javascript\\production_project\\src\\entities\\file.test.ts',
       code: "import { addCommentFormActions, addCommentFormReducer } from '@/entities/Article/testing'",
       errors: [],
       options: [{
@@ -45,7 +45,7 @@ ruleTester.run("public-api-imports", rule, {
       }],
     },
     {
-      filename: 'C:\\Users\\tim\\Desktop\\javascript\\production_project\\src\\entities\\StoreDecorator.tsx',
+      filename: 'C:\\Users\\Public\\Desktop\\javascript\\production_project\\src\\entities\\StoreDecorator.tsx',
       code: "import { addCommentFormActions, addCommentFormReducer } from '@/entities/Article/testing'",
       errors: [],
       options: [{
@@ -63,7 +63,7 @@ ruleTester.run("public-api-imports", rule, {
       output: "import { addCommentFormActions, addCommentFormReducer } from '@/entities/Article'",
     },
     {
-      filename: 'C:\\Users\\tim\\Desktop\\javascript\\production_project\\src\\entities\\StoreDecorator.tsx',
+      filename: 'C:\\Users\\Public\\Desktop\\javascript\\production_project\\src\\entities\\StoreDecorator.tsx',
       code: "import { addCommentFormActions, addCommentFormReducer } from '@/entities/Article/testing/file.tsx'",
       errors: [{message: 'Абсолютный импорт разрешен только из Public API (index.ts, testing.ts)'}],
       options: [{
@@ -73,7 +73,7 @@ ruleTester.run("public-api-imports", rule, {
       output: "import { addCommentFormActions, addCommentFormReducer } from '@/entities/Article'",
     },
     {
-      filename: 'C:\\Users\\tim\\Desktop\\javascript\\production_project\\src\\entities\\forbidden.ts',
+      filename: 'C:\\Users\\Public\\Desktop\\javascript\\production_project\\src\\entities\\forbidden.ts',
       code: "import { addCommentFormActions, addCommentFormReducer } from '@/entities/Article/testing'",
       errors: [{message: 'Тестовые данные могут быть импортированы только в файлы указанные в опции линтера testFilesPatterns'}],
       options: [{

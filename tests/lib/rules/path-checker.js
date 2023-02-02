@@ -17,12 +17,12 @@ const rule = require("../../../lib/rules/path-checker"),
 //------------------------------------------------------------------------------
 
 const ruleTester = new RuleTester({
-  parserOptions: {ecmaVersion: 6, sourceType: 'module'}
+  parserOptions: { ecmaVersion: 6, sourceType: 'module' }
 });
 ruleTester.run("path-checker", rule, {
   valid: [
     {
-      filename: 'C:\\Users\\tim\\Desktop\\javascript\\production_project\\src\\entities\\Article',
+      filename: 'C:\\Users\\Public\\Desktop\\javascript\\production_project\\src\\entities\\Article\\index.ts',
       code: "import { addCommentFormActions, addCommentFormReducer } from '../../model/slices/addCommentFormSlice'",
       errors: [],
     },
@@ -30,19 +30,21 @@ ruleTester.run("path-checker", rule, {
 
   invalid: [
     {
-      filename: 'C:\\Users\\tim\\Desktop\\javascript\\production_project\\src\\entities\\Article',
+      filename: 'C:\\Users\\Public\\Desktop\\javascript\\production_project\\src\\entities\\Article\\index.ts',
       code: "import { addCommentFormActions, addCommentFormReducer } from '@/entities/Article/model/slices/addCommentFormSlice'",
-      errors: [{ message: "В рамках одного слайса все пути должны быть относительными"}],
+      errors: [{ message: "В рамках одного слайса все пути должны быть относительными" }],
       options: [
         {
           alias: '@'
         }
-      ]
+      ],
+      output: "import { addCommentFormActions, addCommentFormReducer } from './model/slices/addCommentFormSlice'",
     },
     {
-      filename: 'C:\\Users\\tim\\Desktop\\javascript\\production_project\\src\\entities\\Article',
+      filename: 'C:\\Users\\Public\\Desktop\\javascript\\production_project\\src\\entities\\Article\\index.ts',
       code: "import { addCommentFormActions, addCommentFormReducer } from 'entities/Article/model/slices/addCommentFormSlice'",
-      errors: [{ message: "В рамках одного слайса все пути должны быть относительными"}],
+      errors: [{ message: "В рамках одного слайса все пути должны быть относительными" }],
+      output: "import { addCommentFormActions, addCommentFormReducer } from './model/slices/addCommentFormSlice'",
     },
   ],
 });
