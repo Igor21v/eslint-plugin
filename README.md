@@ -1,48 +1,8 @@
 # eslint-plugin-eslint-plugin
 
-plugin for eslint
+Плагин для Eslint предназначенный для строгого контроля главных архитектурных принципов [Feature sliced design](https://feature-sliced.design/docs/get-started/tutorial)
+Содержит 3 правила:
 
-## Installation
-
-You'll first need to install [ESLint](https://eslint.org/):
-
-```sh
-npm i eslint --save-dev
-```
-
-Next, install `eslint-plugin-eslint-plugin`:
-
-```sh
-npm install eslint-plugin-eslint-plugin --save-dev
-```
-
-## Usage
-
-Add `eslint-plugin` to the plugins section of your `.eslintrc` configuration file. You can omit the `eslint-plugin-` prefix:
-
-```json
-{
-    "plugins": [
-        "eslint-plugin"
-    ]
-}
-```
-
-
-Then configure the rules you want to use under the rules section.
-
-```json
-{
-    "rules": {
-        "eslint-plugin/rule-name": 2
-    }
-}
-```
-
-## Rules
-
-<!-- begin auto-generated rules list -->
-TODO: Run eslint-doc-generator to generate the rules list.
-<!-- end auto-generated rules list -->
-
-
+1. path-checker - запрещает использовать абсолютные импорты в рамках одного модуля
+2. layer-imports - проверяет корректность использования слоев с точки зрения FSD (например widgets нельзя использовать в features и entitites)
+3. public-api-imports - разрешает импорт из других модулей только из public api. Имеет auto fix
